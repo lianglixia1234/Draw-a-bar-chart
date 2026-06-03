@@ -183,8 +183,8 @@ if uploaded_file is not None:
     y_max_data = maxs.max()
     
     ax.set_ylim(
-        min(Y_MIN, y_min_data) - 0.3,   # 👈 下方留白
-        max(Y_MAX, y_max_data) + 0.8
+        min(Y_MIN, y_min_data) ,   # 👈 下方留白
+        max(Y_MAX, y_max_data)
     )
     
     ax.set_ylabel(
