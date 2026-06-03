@@ -113,25 +113,8 @@ if uploaded_file is not None:
     ax.scatter(x, means, color="black", s=70, zorder=5)
 
     # mean数值
-    for i, mean in enumerate(means):
-        ax.text(
-        i + 0.08,      # 向右偏移
-        mean,          # 与均值点同高
-        f"Mean={mean:.2f}",
-        ha="left",
-        va="center",
-        fontsize=10,
-        fontweight="bold",
-        bbox=dict(
-            facecolor="white",
-            alpha=0.8,
-            edgecolor="none"
-        )
-    )
-
-    # max/min线
     for i in range(len(conditions)):
-        # Max虚线
+
     ax.hlines(
         y=maxs.iloc[i],
         xmin=i-0.25,
@@ -142,7 +125,6 @@ if uploaded_file is not None:
         zorder=4
     )
 
-    # Max数值
     ax.text(
         i,
         maxs.iloc[i] + 0.08,
@@ -152,14 +134,9 @@ if uploaded_file is not None:
         fontsize=9,
         color="#1B4F72",
         fontweight="bold",
-        bbox=dict(
-            facecolor="white",
-            alpha=0.8,
-            edgecolor="none"
-        )
+        bbox=dict(facecolor="white", alpha=0.8, edgecolor="none")
     )
 
-    # Min虚线
     ax.hlines(
         y=mins.iloc[i],
         xmin=i-0.25,
@@ -170,7 +147,6 @@ if uploaded_file is not None:
         zorder=4
     )
 
-    # Min数值
     ax.text(
         i,
         mins.iloc[i] - 0.08,
@@ -180,11 +156,7 @@ if uploaded_file is not None:
         fontsize=9,
         color="#2980B9",
         fontweight="bold",
-        bbox=dict(
-            facecolor="white",
-            alpha=0.8,
-            edgecolor="none"
-        )
+        bbox=dict(facecolor="white", alpha=0.8, edgecolor="none")
     )
 
     # =========================
