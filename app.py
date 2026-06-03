@@ -115,49 +115,49 @@ if uploaded_file is not None:
     # mean数值
     for i in range(len(conditions)):
 
-    ax.hlines(
-        y=maxs.iloc[i],
-        xmin=i-0.25,
-        xmax=i+0.25,
-        colors="#1B4F72",
-        linestyles="--",
-        linewidth=2,
-        zorder=4
-    )
-
-    ax.text(
-        i,
-        maxs.iloc[i] + 0.08,
-        f"Max={maxs.iloc[i]:.1f}",
-        ha="center",
-        va="bottom",
-        fontsize=9,
-        color="#1B4F72",
-        fontweight="bold",
-        bbox=dict(facecolor="white", alpha=0.8, edgecolor="none")
-    )
-
-    ax.hlines(
-        y=mins.iloc[i],
-        xmin=i-0.25,
-        xmax=i+0.25,
-        colors="#AED6F1",
-        linestyles="--",
-        linewidth=2,
-        zorder=4
-    )
-
-    ax.text(
-        i,
-        mins.iloc[i] - 0.08,
-        f"Min={mins.iloc[i]:.1f}",
-        ha="center",
-        va="top",
-        fontsize=9,
-        color="#2980B9",
-        fontweight="bold",
-        bbox=dict(facecolor="white", alpha=0.8, edgecolor="none")
-    )
+        ax.hlines(
+            y=maxs.iloc[i],
+            xmin=i-0.25,
+            xmax=i+0.25,
+            colors="#1B4F72",
+            linestyles="--",
+            linewidth=2,
+            zorder=4
+        )
+    
+        ax.text(
+            i,
+            maxs.iloc[i] + 0.08,
+            f"Max={maxs.iloc[i]:.1f}",
+            ha="center",
+            va="bottom",
+            fontsize=9,
+            color="#1B4F72",
+            fontweight="bold",
+            bbox=dict(facecolor="white", alpha=0.8, edgecolor="none")
+        )
+    
+        ax.hlines(
+            y=mins.iloc[i],
+            xmin=i-0.25,
+            xmax=i+0.25,
+            colors="#AED6F1",
+            linestyles="--",
+            linewidth=2,
+            zorder=4
+        )
+    
+        ax.text(
+            i,
+            mins.iloc[i] - 0.08,
+            f"Min={mins.iloc[i]:.1f}",
+            ha="center",
+            va="top",
+            fontsize=9,
+            color="#2980B9",
+            fontweight="bold",
+            bbox=dict(facecolor="white", alpha=0.8, edgecolor="none")
+        )
 
     # =========================
     # 坐标轴设置
