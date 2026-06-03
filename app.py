@@ -213,7 +213,7 @@ if uploaded_file is not None:
     # 右侧评分说明框
     # =========================
     ax.text(
-        1.25, 0.5,   # ← 关键：往右移
+        1.2, 0.5,   # ← 关键：往右移
         score_text,
         transform=ax.transAxes,
         va="center",
