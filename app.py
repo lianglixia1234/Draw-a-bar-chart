@@ -115,7 +115,7 @@ if uploaded_file is not None:
     # mean数值
     ax.text(
         i + 0.08,      # 向右偏移
-        mean,          # 与均值点同高
+        means,          # 与均值点同高
         f"Mean={mean:.2f}",
         ha="left",
         va="center",
