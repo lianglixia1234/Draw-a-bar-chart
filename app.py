@@ -7,7 +7,7 @@ import io
 # =========================
 # 页面设置
 # =========================
-st.set_page_config(page_title="Flicker Plot Tool", layout="centered")
+st.set_page_config(page_title="Score Visualization Tool", layout="centered")
 st.title("📊 Score Visualization Tool")
 
 # =========================
