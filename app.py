@@ -9,6 +9,7 @@ import io
 # =========================
 st.set_page_config(page_title="Score Visualization Tool", layout="centered")
 st.title("📊 Score Visualization Tool")
+st.title("Only support language")
 
 # =========================
 # 上传 Excel
@@ -39,7 +40,7 @@ title_lines_num = st.sidebar.number_input(
 
 title_lines = []
 for i in range(int(title_lines_num)):
-    line = st.sidebar.text_input(f"标题第 {i+1} 行", value="")
+    line = st.sidebar.text_input(f"标题第 {i+1} 行", value="标题内容")
     title_lines.append(line)
 
 TITLE = "\n".join(title_lines)
@@ -47,7 +48,7 @@ TITLE = "\n".join(title_lines)
 # Y轴标题
 Y_LABEL = st.sidebar.text_input(
     "Y轴标题",
-    value="Flickering sensation"
+    value="Y轴标题内容"
 )
 
 # =========================
@@ -58,7 +59,7 @@ st.sidebar.subheader("⭐ 评分说明（逐条填写）")
 score_labels = {}
 
 for i in range(int(Y_MIN), int(Y_MAX) + 1):
-    score_labels[i] = st.sidebar.text_input(f"{i}分说明", value="")
+    score_labels[i] = st.sidebar.text_input(f"{i}分说明", value="评分含义内容")
 
 # 生成右侧文本
 score_text = "Score Meaning\n\n"
