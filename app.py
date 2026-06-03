@@ -192,9 +192,10 @@ if uploaded_file is not None:
         fontsize=13,
         fontweight="bold"
     )
-    
+
+    # X轴标签
     ax.set_xticks(x)
-    
+    ax.tick_params(axis='x', pad=10)
     ax.set_xticklabels(
         conditions,
         fontsize=12
