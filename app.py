@@ -33,27 +33,27 @@ Y_LABEL = st.sidebar.text_input(
     value="Flickering sensation"
 )
 
-st.sidebar.header("评分说明（1-7）")
 
-score_1 = st.sidebar.text_input("1分说明", "Very noticeable flicker")
-score_2 = st.sidebar.text_input("2分说明", "")
-score_3 = st.sidebar.text_input("3分说明", "")
-score_4 = st.sidebar.text_input("4分说明", "")
-score_5 = st.sidebar.text_input("5分说明", "")
-score_6 = st.sidebar.text_input("6分说明", "")
-score_7 = st.sidebar.text_input("7分说明", "No noticeable flicker")
+st.sidebar.header("评分说明（逐条填写）")
+
+score_labels = {}
+
+for i in range(int(Y_MIN), int(Y_MAX) + 1):
+
+    score_labels[i] = st.sidebar.text_input(
+        f"{i}分说明",
+        value=""
+    )
+
+score_text = "Score Meaning:\n\n"
+
+for i in range(int(Y_MIN), int(Y_MAX) + 1):
+
+    label = score_labels[i] if score_labels[i] else "(not defined)"
+
+    score_text += f"{i} = {label}\n"
 
 
-
-score_text = [
-    f"1 = {score_1}",
-    f"2 = {score_2}",
-    f"3 = {score_3}",
-    f"4 = {score_4}",
-    f"5 = {score_5}",
-    f"6 = {score_6}",
-    f"7 = {score_7}",
-]
 # =========================
 # 主逻辑
 # =========================
@@ -123,21 +123,21 @@ if uploaded_file is not None:
 
     legend_text = "\n".join(score_text)
 
+    # 这里是右侧的评分说明
     ax.text(
-        1.05, 0.5,                 # 图右侧位置（关键）
-        legend_text,
-        transform=ax.transAxes,
-        va="center",
-        ha="left",
-        fontsize=10,
-        bbox=dict(
-            boxstyle="round,pad=0.5",
-            facecolor="white",
-            edgecolor="black",
-            alpha=0.9
+    1.05, 0.5,
+    score_text,
+    transform=ax.transAxes,
+    va="center",
+    ha="left",
+    fontsize=10,
+    bbox=dict(
+        boxstyle="round,pad=0.6",
+        facecolor="white",
+        edgecolor="black",
+        alpha=0.9
         )
     )
-    
 
     ax.grid(axis="y", linestyle=":", alpha=0.4)
 
