@@ -112,9 +112,10 @@ if uploaded_file is not None:
     # mean点
     ax.scatter(x, means, color="black", s=70, zorder=5)
 
-    for i in range(len(conditions)):
+    # 最大最小值
+    for j, mean in enumerate(means):
         ax.text(
-        i + 0.08,      # 向右偏移
+        j + 0.08,      # 向右偏移
         mean,          # 与均值点同高
         f"Mean={mean:.2f}",
         ha="left",
