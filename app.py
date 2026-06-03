@@ -42,7 +42,7 @@ for i in range(int(title_lines_num)):
     line = st.sidebar.text_input(f"标题第 {i+1} 行", value="")
     title_lines.append(line)
 
-TITLE = "\n".join(title_lines)
+subtitle = "\n".join([t for t in title_lines if t.strip() != ""])
 
 # Y轴标题
 Y_LABEL = st.sidebar.text_input(
@@ -227,6 +227,17 @@ if uploaded_file is not None:
         )
     )
 
+    if subtitle:
+        TITLE = main_title + "\n" + subtitle
+    else:
+        TITLE = main_title
+
+    ax.set_title(
+        TITLE,
+        fontsize=14,
+        fontweight="bold",
+        pad=15
+    )
 
     # 美化边框
     # ==================================================
