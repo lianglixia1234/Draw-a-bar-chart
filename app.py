@@ -88,8 +88,8 @@ if uploaded_file is not None:
 
     # 蓝色渐变色
     colors = plt.cm.Blues(np.linspace(0.45, 0.85, len(conditions)))
-
-    fig, ax = plt.subplots(figsize=(10, 6))
+    # 改变图的大小
+    fig, ax = plt.subplots(figsize=(8, 6))
     x = np.arange(len(conditions))
 
     # 关键：给右侧说明留空间
@@ -213,7 +213,7 @@ if uploaded_file is not None:
     # 右侧评分说明框
     # =========================
     ax.text(
-        1.30, 0.5,   # ← 关键：往右移
+        1.25, 0.5,   # ← 关键：往右移
         score_text,
         transform=ax.transAxes,
         va="center",
