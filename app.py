@@ -195,7 +195,7 @@ if uploaded_file is not None:
 
     # X轴标签
     ax.set_xticks(x)
-    ax.tick_params(axis='x', pad=10)
+    ax.tick_params(axis='x', pad=15)
     ax.set_xticklabels(
         conditions,
         fontsize=12
