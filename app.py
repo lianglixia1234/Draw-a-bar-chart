@@ -86,9 +86,10 @@ if uploaded_file is not None:
     maxs = df_numeric.max()
     mins = df_numeric.min()
 
+    # 蓝色渐变色
     colors = plt.cm.Blues(np.linspace(0.45, 0.85, len(conditions)))
 
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(10, 6))
     x = np.arange(len(conditions))
 
     # 关键：给右侧说明留空间
@@ -113,30 +114,116 @@ if uploaded_file is not None:
 
     # mean数值
     for i, mean in enumerate(means):
-        ax.text(i + 0.05, mean + 0.05, f"{mean:.2f}", fontsize=10)
+        ax.text(
+        i + 0.08,      # 向右偏移
+        mean,          # 与均值点同高
+        f"Mean={mean:.2f}",
+        ha="left",
+        va="center",
+        fontsize=10,
+        fontweight="bold",
+        bbox=dict(
+            facecolor="white",
+            alpha=0.8,
+            edgecolor="none"
+        )
+    )
 
     # max/min线
     for i in range(len(conditions)):
-        ax.hlines(maxs.iloc[i], i-0.25, i+0.25, colors="blue", linestyles="--")
-        ax.hlines(mins.iloc[i], i-0.25, i+0.25, colors="lightblue", linestyles="--")
+        # Max虚线
+    ax.hlines(
+        y=maxs.iloc[i],
+        xmin=i-0.25,
+        xmax=i+0.25,
+        colors="#1B4F72",
+        linestyles="--",
+        linewidth=2,
+        zorder=4
+    )
+
+    # Max数值
+    ax.text(
+        i,
+        maxs.iloc[i] + 0.08,
+        f"Max={maxs.iloc[i]:.1f}",
+        ha="center",
+        va="bottom",
+        fontsize=9,
+        color="#1B4F72",
+        fontweight="bold",
+        bbox=dict(
+            facecolor="white",
+            alpha=0.8,
+            edgecolor="none"
+        )
+    )
+
+    # Min虚线
+    ax.hlines(
+        y=mins.iloc[i],
+        xmin=i-0.25,
+        xmax=i+0.25,
+        colors="#AED6F1",
+        linestyles="--",
+        linewidth=2,
+        zorder=4
+    )
+
+    # Min数值
+    ax.text(
+        i,
+        mins.iloc[i] - 0.08,
+        f"Min={mins.iloc[i]:.1f}",
+        ha="center",
+        va="top",
+        fontsize=9,
+        color="#2980B9",
+        fontweight="bold",
+        bbox=dict(
+            facecolor="white",
+            alpha=0.8,
+            edgecolor="none"
+        )
+    )
 
     # =========================
     # 坐标轴设置
-    # =========================
-    ax.set_ylim(Y_MIN, Y_MAX + 0.5)
+    ax.set_ylim(
+    Y_MIN,
+    Y_MAX + 0.8
+    )
+    
+    ax.set_ylabel(
+        Y_LABEL,
+        fontsize=13,
+        fontweight="bold"
+    )
+    
     ax.set_xticks(x)
-    ax.set_xticklabels(conditions)
-
-    ax.set_ylabel(Y_LABEL)
-    ax.set_title(TITLE, fontsize=14, fontweight="bold")
-
-    ax.grid(axis="y", linestyle=":", alpha=0.4)
+    
+    ax.set_xticklabels(
+        conditions,
+        fontsize=12
+    )
+    
+    # ==================================================
+    # 网格
+    # ==================================================
+    
+    ax.grid(
+        axis="y",
+        linestyle=":",
+        alpha=0.4
+    )
+    
+    ax.set_axisbelow(True)
 
     # =========================
     # 右侧评分说明框
     # =========================
     ax.text(
-        1.02, 0.5,
+        1.30, 0.5,   # ← 关键：往右移
         score_text,
         transform=ax.transAxes,
         va="center",
