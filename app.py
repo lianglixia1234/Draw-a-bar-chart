@@ -112,6 +112,21 @@ if uploaded_file is not None:
     # mean点
     ax.scatter(x, means, color="black", s=70, zorder=5)
 
+    for i in range(len(conditions)):
+        ax.text(
+        i + 0.08,      # 向右偏移
+        mean,          # 与均值点同高
+        f"Mean={mean:.2f}",
+        ha="left",
+        va="center",
+        fontsize=10,
+        fontweight="bold",
+        bbox=dict(
+            facecolor="white",
+            alpha=0.8,
+            edgecolor="none"
+        )
+    )
     
     # 最大最小值
     for i in range(len(conditions)):
