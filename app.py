@@ -61,7 +61,7 @@ for i in range(int(Y_MIN), int(Y_MAX) + 1):
     score_labels[i] = st.sidebar.text_input(f"{i}分说明", value="")
 
 # 生成右侧文本
-score_text = "Score Meaning:\n\n"
+score_text = "Score Meaning\n\n"
 for i in range(int(Y_MIN), int(Y_MAX) + 1):
     label = score_labels[i] if score_labels[i] else "(not defined)"
     score_text += f"{i} = {label}\n"
@@ -113,6 +113,22 @@ if uploaded_file is not None:
     ax.scatter(x, means, color="black", s=70, zorder=5)
 
     # mean数值
+    ax.text(
+        i + 0.08,      # 向右偏移
+        mean,          # 与均值点同高
+        f"Mean={mean:.2f}",
+        ha="left",
+        va="center",
+        fontsize=10,
+        fontweight="bold",
+        bbox=dict(
+            facecolor="white",
+            alpha=0.8,
+            edgecolor="none"
+        )
+    )
+
+    # min/max
     for i in range(len(conditions)):
 
         ax.hlines(
