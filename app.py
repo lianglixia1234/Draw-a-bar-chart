@@ -8,12 +8,12 @@ import io
 # 页面设置
 # =========================
 st.set_page_config(page_title="Flicker Plot Tool", layout="centered")
-st.title("📊 Flicker Score Visualization Tool")
+st.title("📊 Score Visualization Tool")
 
 # =========================
 # 上传 Excel
 # =========================
-uploaded_file = st.file_uploader("上传 Excel 文件", type=["xlsx"])
+uploaded_file = st.file_uploader("📁上传 Excel 文件", type=["xlsx"])
 
 # =========================
 # 所有参数（用户输入）
