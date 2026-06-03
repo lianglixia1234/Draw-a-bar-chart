@@ -23,10 +23,24 @@ st.sidebar.header("📌 图表参数设置")
 Y_MIN = st.sidebar.number_input("Y轴最小值", value=1)
 Y_MAX = st.sidebar.number_input("Y轴最大值", value=7)
 
-TITLE = st.sidebar.text_input(
-    "图表标题",
-    value="The flicker scores of the online version and special version"
+title_lines_num = st.sidebar.number_input(
+    "标题行数",
+    min_value=1,
+    max_value=5,
+    value=2,
+    step=1
 )
+
+st.sidebar.header("标题设置")
+
+title_lines = []
+
+for i in range(int(title_lines_num)):
+    line = st.sidebar.text_input(f"标题第 {i+1} 行", value="")
+    title_lines.append(line)
+
+TITLE = "\n".join(title_lines)
+
 
 Y_LABEL = st.sidebar.text_input(
     "Y轴标题",
