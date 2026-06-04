@@ -9,7 +9,7 @@ import io
 # =========================
 st.set_page_config(page_title="Score Visualization Tool", layout="centered")
 st.title("📊 Score Visualization Tool")
-st.header("Only support English: make sure all input are in English")
+st.write("Only support English: make sure all input are in English")
 
 # =========================
 # 上传 Excel
