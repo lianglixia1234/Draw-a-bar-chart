@@ -265,7 +265,7 @@ if uploaded_file is not None:
     fig.savefig(buf, format="png", dpi=300, bbox_inches="tight")
 
     st.download_button(
-        label="📥 下载PNG图片",
+        label="📥 下载 PNG 图片",
         data=buf.getvalue(),
         file_name="flicker_plot.png",
         mime="image/png"
