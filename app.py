@@ -40,7 +40,7 @@ title_lines_num = st.sidebar.number_input(
 
 title_lines = []
 for i in range(int(title_lines_num)):
-    line = st.sidebar.text_input(f"标题第 {i+1} 行", value="标题内容")
+    line = st.sidebar.text_input(f"标题第 {i+1} 行", value="")
     title_lines.append(line)
 
 TITLE = "\n".join(title_lines)
