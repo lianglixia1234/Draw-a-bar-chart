@@ -67,7 +67,7 @@ for i in range(int(Y_MIN), int(Y_MAX) + 1):
     label = score_labels[i] if score_labels[i] else "(not defined)"
     score_text += f"{i} = {label}\n"
 
-st.sidebar.subheader(" 🌙 调整图的长宽")
+st.sidebar.subheader(" 👈 调整图的长宽")
 
 FIG_WIDTH = st.sidebar.slider(
     "图宽度",
