@@ -67,6 +67,22 @@ for i in range(int(Y_MIN), int(Y_MAX) + 1):
     label = score_labels[i] if score_labels[i] else "(not defined)"
     score_text += f"{i} = {label}\n"
 
+
+FIG_WIDTH = st.sidebar.slider(
+    "图宽度",
+    min_value=4,
+    max_value=20,
+    value=8
+)
+
+FIG_HEIGHT = st.sidebar.slider(
+    "图高度",
+    min_value=4,
+    max_value=15,
+    value=6
+)
+
+
 # =========================
 # 主逻辑
 # =========================
@@ -89,8 +105,11 @@ if uploaded_file is not None:
 
     # 蓝色渐变色
     colors = plt.cm.Blues(np.linspace(0.45, 0.85, len(conditions)))
+    
     # 改变图的大小
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(
+        figsize=(FIG_WIDTH, FIG_HEIGHT)
+    )
     x = np.arange(len(conditions))
 
     # 关键：给右侧说明留空间
@@ -233,12 +252,12 @@ if uploaded_file is not None:
     )
 
     
-
+    # 控制的是标题与绘图区之间的距离
     ax.set_title(
         TITLE,
         fontsize=14,
         fontweight="bold",
-        pad=15
+        pad=35
     )
 
     # 美化边框
